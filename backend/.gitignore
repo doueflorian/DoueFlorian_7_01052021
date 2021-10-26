@@ -1,5 +1,0 @@
-node_modules
-.env
-middleware/comments_rights.js
-middleware/post_rights.js
-middleware/post_rights.js
