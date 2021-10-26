@@ -10,15 +10,13 @@ const reactionCtrl = require('../controllers/reaction');
 
 // Importation middleware d'authentification
 const auth = require('../middleware/auth'); 
-// Importation middleware d'authentification des droits pour les posts
-const postRights = require('../middleware/post_rights');
 // Importation de Multer pour les images
 const multer = require('../middleware/multer-config');
 
 // Post routes
 router.post('/',auth, multer, postCtrl.createPost);
-router.put('/:id', auth, postRights, multer, postCtrl.modifyPost);
-router.delete('/:id', auth, postRights, multer, postCtrl.deletePost);
+router.put('/:id', auth, multer, postCtrl.modifyPost);
+router.delete('/:id', auth, multer, postCtrl.deletePost);
 router.get('/',auth, postCtrl.getEveryPost);
 router.get('/:id', auth, postCtrl.getPost);
 

@@ -76,8 +76,8 @@ exports.getUser = (req, res, next) => {
 }
 
 // Suppression de l'utilisateur
-// L'utilisateur devra renseigner son mail et son MDP afin de supprimer son compte
-// et ce bien qu'il soit déjà connecté, puisque l'user_id lié à la requête sera
+// 'utilisateur devra renseigner son mail et son MDP afin de supprimer son compte
+// bien qu'il soit déjà connecté, puisque l'user_id lié à la requête
 // fera parti de la requête SQL afin de cibler le compte dans la DB
 exports.deleteUser = (req, res, next) => {
     // Indiquer si compte non trouvé
