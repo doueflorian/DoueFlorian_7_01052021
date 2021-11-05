@@ -277,15 +277,14 @@ export default {
     }
 
     &_delete {
-      color: #fff;
+    color: #fff;
     background-color: #000;
     user-select: none;
     cursor: pointer;
     position: absolute;
     bottom: 4px;
     right: 0;
-    padding: 0.2em;
-    
+    padding: 0.2em; 
     }
 
   }

@@ -53,10 +53,10 @@
           </label>
           <div class="preview" v-if="previewUrl">
             <img :src="previewUrl" /><br />
-            <span  @click="deleteImg" :data-id="id" class="preview_delete"> Supprimer </span>
+            <i @click="deleteImg" :data-id="id" class="fas fa-window-close preview_delete"></i>
           </div>
-            <label for="delete_image">Supprimer image</label>
-          <input type="checkbox" v-model="checked" name="delete_uploaded_image" value="supprimer image">
+          <label>Supprimer l'image de la publication
+          <input type="checkbox" v-model="checked" name="delete_uploaded_image" value="supprimer image"></label>
           <input type="submit"  class="submit" value="Publier">
           <span class="post_error" v-if="preventEmptyPost !== null">{{ preventEmptyPost }}</span>
         </form>
