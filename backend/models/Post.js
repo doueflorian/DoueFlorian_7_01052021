@@ -1,23 +1,14 @@
 const { Sequelize, DataTypes} = require('sequelize');
 const sequelize = require('../sequelize');
 
+const User = require('./User');
+
 const Post = sequelize.define('Post', {
     // Model attributes are defined here
-    message: {
-        type: DataTypes.TEXT,
-    },
+    message: DataTypes.TEXT,
     user_id: {
         type: DataTypes.INTEGER,
         allowNull: false
-    },
-    last_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    first_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-    
     },
     image_url: DataTypes.STRING,
     likes: {
@@ -29,14 +20,14 @@ const Post = sequelize.define('Post', {
         type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 0
-
     }
-
-
     }, {
     timestamps: true,
     createdAt: 'created_at',
-    updatedAt: 'updated_at'
-  });
-  
+    updatedAt: 'updated_at',
+    underscored: true
+    });
+
+Post.belongsTo(User);
+
 module.exports= ('Post',sequelize.models.Post);

@@ -24,9 +24,12 @@ const User = sequelize.define('User', {
     created_at: {
       type: DataTypes.DATE,
       defaultValue: Sequelize.NOW
-    },user_level: DataTypes.INTEGER
-  }, {
-    timestamps: false
-  });
+    },
+    user_level: DataTypes.INTEGER,
+    profile_pic: DataTypes.STRING
+    }, {
+    timestamps: false,
+    underscored: true
+    });
   
 module.exports= ('User',sequelize.models.User);

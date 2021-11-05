@@ -10,11 +10,11 @@ module.exports = (req, res, next) => {
     const decodedToken = jwt.verify(token, JWTPRIVATEKEY);
     // Stocker l'user_id & user_level du token
     const user_id = decodedToken.user_id;
-    const user_level = decodedToken.user_level;
+    // const user_level = decodedToken.user_level;
     // Vérifier l'ID de l'utilisateur et lui laisser ou non le contrôle
     if (req.body.user_id && req.body.user_id !== user_id) {
       throw 'Utilisateur non valide';
-    } else if (user_level !== 1) {
+    } else if (req.body.user_level && req.body.user_level !== 1) {
       throw 'Droits insuffisants';
     }else{
       next();

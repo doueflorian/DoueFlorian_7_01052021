@@ -10,7 +10,7 @@ const auth = require('../middleware/auth');
 const multer = require('../middleware/multer-config');
 
 //  Comments Routes
-router.put('/comments/:id', auth, multer, commCtrl.modifyComment);
-router.delete('/comments/:id', auth, multer, commCtrl.deleteComment);
+router.put('/:id', auth, multer, commCtrl.modifyComment);
+router.delete('/:id', auth, multer, commCtrl.deleteComment);
 
 module.exports = router;

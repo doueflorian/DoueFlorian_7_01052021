@@ -1,6 +1,8 @@
 const { Sequelize, DataTypes} = require('sequelize');
 const sequelize = require('../sequelize');
 
+const User = require('./User');
+
 // Use like for 1: like, 0: null, -1: dislike
 
 const Reaction = sequelize.define('Reaction', {
@@ -18,9 +20,11 @@ const Reaction = sequelize.define('Reaction', {
         allowNull: false,
         defaultValue: 0
     }
-
     },{
-        timestamps: false
-});
+        timestamps: false,
+        underscored: true        
+    });
+
+Reaction.belongsTo(User);
   
 module.exports= ('Reaction',sequelize.models.Reaction);

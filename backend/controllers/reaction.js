@@ -1,4 +1,5 @@
 const Reaction = require('../models/Reaction');
+const User = require('../models/User');
 const Post = require('../models/Post');
 
 // Reagir au post
@@ -107,6 +108,34 @@ exports.reactToPost = (req, res, next) => {
                     })
                     .then(() => res.status(200).json({ message: 'Reaction supprimée !'}));    
 
+                }else if(reaction.like_data === 1 && req.body.like_data === 1){
+
+                    return reaction
+                    .destroy({...req.body})
+                    .then(function() {
+                        Post.decrement('likes',{
+                            by: 1,
+                            where: { id: req.params.id } 
+                        })
+                    })
+                    .then(() => res.status(200).json({ message: 'Reaction supprimée !'}));    
+
+                // Si un dislike existe et que l'utilisateur l'enlève
+                // Supprimer la réaction et enlever 1 dislike au post
+                }else if(reaction.like_data === -1 && req.body.like_data === -1){
+
+                    return reaction
+                    .destroy({...req.body})
+                    .then(function() {
+                        Post.decrement('dislikes',{
+                            by: 1,
+                            where: { id: req.params.id } 
+                        })
+                    })
+                    .then(() => res.status(200).json({ message: 'Reaction supprimée !'}));    
+
+                // Si un dislike existe et que l'utilisateur l'enlève
+                // Supprimer la réaction et enlever 1 dislike au post
                 }
             })
         .catch(error => res.status(400).json({ error }));
@@ -114,21 +143,21 @@ exports.reactToPost = (req, res, next) => {
 
 // Récupérer toutes les réactions d'un post
 exports.getReactionsForPost = (req, res, next) => {
-    Reaction.findAll( {where:  { post_id: req.params.id } } )
+    Reaction.findAll( {where:  { post_id: req.params.id }, include: User })
         .then(reactions => res.status(200).json(reactions))
         .catch(error => res.status(400).json({ error }));
 };
 
 // Récupérer tous les utilisateurs qui ont liké le post
 exports.getLikesForPost = (req, res, next) => {
-    Reaction.findAll( {where:  { post_id: req.params.id, like_data: 1 } } )
+    Reaction.findAll( {where:  { post_id: req.params.id, like_data: 1 } })
         .then(reactions => res.status(200).json(reactions))
         .catch(error => res.status(400).json({ error }));
 };
 
 // Récupérer tous les utilisateurs qui ont disliké le post
 exports.getDislikesForPost = (req, res, next) => {
-    Reaction.findAll( {where:  { post_id: req.params.id, like_data: -1 } } )
+    Reaction.findAll( {where:  { post_id: req.params.id, like_data: -1 } })
         .then(reactions => res.status(200).json(reactions))
         .catch(error => res.status(400).json({ error }));
 };

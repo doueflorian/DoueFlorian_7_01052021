@@ -30,7 +30,10 @@ app.use(express.urlencoded({ extended: true }));
 // Indication du dosser statique utilisé par Multer
 app.use('/images', express.static('images'));
 
+
 // Différentes routes
+
+// app.use(Associations)
 
 // Importation
 const userRoutes = require('./routes/user');
