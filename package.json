@@ -5,6 +5,10 @@
     },
     "dependencies": {
         "concurrently": "^6.3.0"
+<<<<<<< HEAD
     },
     "devDependencies": {}
+=======
+    }
+>>>>>>> ca4075acad00341b85e7d62e747267def394fbb7
 }

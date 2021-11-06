@@ -51,7 +51,7 @@
           </label>
           <div class="preview" v-if="previewUrl">
             <img :src="previewUrl" /><br />
-            <span  @click="deleteImg" :data-id="id" class="preview_delete"> Supprimer </span>
+            <i @click="deleteImg" :data-id="id" class="fas fa-window-close preview_delete"></i>
           </div>
           <label for="delete_image">Supprimer image</label>
           <input type="checkbox" v-model="checked" name="delete_image" value="supprimer image">
