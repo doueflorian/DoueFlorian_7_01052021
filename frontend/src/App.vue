@@ -50,7 +50,6 @@ export default {
   },
   data(){
       return {
-        posts: []
         }
   },
   computed: {
