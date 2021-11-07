@@ -215,15 +215,6 @@ export default {
 
       }
   },
-  // Avant création, vérifier la présence d'un token dans le sessionStorage
-  // Si null, renvoyer au login
-  beforeCreate () {
-    if (!sessionStorage.userToken) {
-      router.push('/login');
-    }else {
-      store.dispatch('getToken');
-    }
-  },
   created () {
         // Récupérer les infos utilisateur depuis la DB
         fetch("http://localhost:3000/api/users/" + user_id,{
@@ -244,7 +235,15 @@ export default {
             return response.json() })
         .then(data => this.posts = data)
         .catch((error) => { error });
-    
+  },
+  // Si l'utilisateur charge "sa" page user, renvoyer vers account
+  // Si null, renvoyer au login
+  mounted () {
+    if (user_id == store.state.token.user_id) {
+      router.push('account');
+    }else {
+      store.dispatch('getToken');
+    }
   }
 }
 </script>

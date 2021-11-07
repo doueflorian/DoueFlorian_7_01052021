@@ -177,6 +177,7 @@ export default {
         userData = {
           last_name: e.target.last_name.value.toUpperCase(),
           first_name: e.target.first_name.value,
+          email: e.target.email.value,
           date_of_birth: null,
           occupation: null,
           id: store.state.token.user_id,
@@ -186,6 +187,7 @@ export default {
         userData = {
           last_name: e.target.last_name.value.toUpperCase(),
           first_name: e.target.first_name.value,
+          email: e.target.email.value,
           date_of_birth: null,
           occupation: e.target.occupation.value,
           id: store.state.token.user_id,
@@ -195,6 +197,7 @@ export default {
         userData = {
           last_name: e.target.last_name.value.toUpperCase(),
           first_name: e.target.first_name.value,
+          email: e.target.email.value,
           date_of_birth: e.target.date_of_birth.value,
           occupation: null,
           id: store.state.token.user_id,
@@ -204,6 +207,7 @@ export default {
         userData = {
           last_name: e.target.last_name.value.toUpperCase(),
           first_name: e.target.first_name.value,
+          email: e.target.email.value,
           date_of_birth: e.target.date_of_birth.value,
           occupation: e.target.occupation.value,
           id: store.state.token.user_id,
@@ -256,7 +260,7 @@ export default {
   // Si null, renvoyer au login
   beforeCreate () {
     if (!sessionStorage.userToken) {
-      router.push('/login');
+      router.push('login');
     }else {
       store.dispatch('getToken');
     }

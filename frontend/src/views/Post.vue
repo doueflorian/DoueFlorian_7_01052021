@@ -244,7 +244,7 @@ export default {
   },
   beforeCreate () {
     if (!sessionStorage.userToken) {
-      router.push('/login');
+      router.push('/');
     }else {
       store.dispatch('getToken');
     }

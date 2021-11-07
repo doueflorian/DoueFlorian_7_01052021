@@ -14,7 +14,7 @@
         <input name="date_of_birth" type="date" value=""><br/>
         <label>Poste dans l'entreprise (non obligatoire)</label><br/>
         <input type="text" name="occupation" placeholder="Poste dans l'entreprise"><br/>
-      <label class="file_upload">Ajouter une photo de profil <i class="far fa-file-image"></i><br />
+      <label class="file_upload">Ajouter une photo de profil <i class="far fa-file-image"></i> (non obligatoire)<br />
        (format jpg ou png)
         <input @change="onFileChange" type="file" data-name="account_image" class="hide" name="file" accept="image/*">
       </label>

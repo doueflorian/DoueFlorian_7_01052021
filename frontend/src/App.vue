@@ -48,9 +48,12 @@ export default {
       router.push('/login');
     }
   },
-  data(){
-      return {
-        }
+  beforeCreate () {
+    if (!sessionStorage.userToken) {
+      router.push('login');
+    }else {
+      store.dispatch('getToken');
+    }
   },
   computed: {
     // Données calculées afin de savoir sur quelle vue nous sommes

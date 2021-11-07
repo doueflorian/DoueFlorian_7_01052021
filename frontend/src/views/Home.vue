@@ -85,13 +85,6 @@ export default {
             throw 'Posts indisponibles'
           }
         })
-      // .then(function(data) {
-      //   for(let post of data){
-      //     post.message = urlify(post.message)
-      //     return data
-      //   }
-      // })
-      // Retourner les données dans les data de la vue
       .then(data => this.posts = data)
       .catch((error) => this.error = error)
     },
@@ -159,7 +152,7 @@ export default {
   // Si null, renvoyer au login
   beforeCreate () {
     if (!sessionStorage.userToken) {
-      router.push('/login');
+      router.push('/');
     }else {
       store.dispatch('getToken');
     }
