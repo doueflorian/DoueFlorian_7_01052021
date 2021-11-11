@@ -15,26 +15,23 @@
           {{ createdat }}
         </span>
         <!-- Conteneur modération du post, afficher si utilisateur est à l'origine du post, ou s'il a un user_level de 1 -->
-        <span v-if="tokenid === userid || tokenlevel === 1" class="user_control">
-          <button @click="showControls  = !showControls">...</button>
-          <span v-show="showControls" class="user_control_buttons">
-            <!-- Afficher formulaire modification -->
-            <button
-                @click="showModify  = !showModify" v-show="!showModify">
-                <i class="fas fa-pen"></i> Modifier
-            </button>
-            <!-- Cacher formulaire modification -->
-            <button
-                @click="showModify  = !showModify" v-show="showModify">
-                <i class="fas fa-pen"></i> Annuler
-            </button>
-            <!-- Supprimer le post -->
-            <button
-                @click="deleteCom"
-                v-if="tokenid === userid || tokenlevel === 1 " 
-                :data-id="id"><i class="fas fa-trash"></i> Supprimer
-            </button>
-          </span>
+        <span v-if="tokenid === userid || tokenlevel === 1 " class="user_control">
+          <!-- Afficher formulaire modification -->
+          <button
+            @click="showModify  = !showModify" v-show="!showModify">
+            <i class="fas fa-pen"></i> Modifier
+          </button>
+          <!-- Cacher formulaire modification -->
+          <button
+            @click="showModify  = !showModify" v-show="showModify">
+            <i class="fas fa-pen"></i> Annuler
+          </button>
+          <!-- Supprimer le post -->
+          <button
+            @click="deleteCom"
+            v-if="tokenid === userid || tokenlevel === 1 " 
+            :data-id="id"><i class="fas fa-trash"></i> Supprimer
+          </button>
         </span>
       </div>
       <!-- Conteneur du message -->
@@ -56,8 +53,8 @@
             <img :src="previewUrl" /><br />
             <i @click="deleteImg" :data-id="id" class="fas fa-window-close preview_delete"></i>
           </div>
-          <label for="delete_image">Supprimer image</label>
-          <input type="checkbox" v-model="checked" name="delete_image" value="supprimer image">
+          <label>Supprimer l'image du commentaire
+          <input type="checkbox" v-model="checked" name="delete_image" value="supprimer image"></label>
           <input type="submit" class="submit" value="Publier">
         <span class="post_error" v-if="preventEmptyPost !== null">{{ preventEmptyPost }}</span>
         </form>
@@ -77,7 +74,6 @@ export default {
           'tokenlevel', 'profilepic'],
   data() {
     return {
-      showControls: false,
       showModify: false,
       showComments: false,
       previewUrl: null,
@@ -145,7 +141,6 @@ export default {
               return response.json() })
           .then(() => this.showModify = false)
           .then(() => this.$parent.getComments() )
-          .then(() => this.showControls = false)
           .catch((error) => { error})  
       }
     },

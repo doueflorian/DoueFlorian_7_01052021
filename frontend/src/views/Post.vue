@@ -324,11 +324,10 @@ export default {
     align-items: center;
     padding: 0em 0.5em;
     margin-bottom: 1em;
-
+    flex-wrap: wrap;
       @media (max-width: 810px) {
         justify-content: center;
       }
-
       span:nth-child(2){
         flex: 1;
       }

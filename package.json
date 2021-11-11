@@ -1,8 +1,8 @@
 {
     "name": "groupomania",
     "scripts": {
-        "install": " concurrently \"cd backend && npm install\" \"cd frontend && npm install\" ",
-        "start": " concurrently \"cd backend && nodemon run serve\" \"cd frontend && npm run serve\" "
+        "install": " concurrently \"cd frontend && npm install\" \"cd backend && npm install\" ",
+        "start": " concurrently \"cd frontend && npm run serve\" \"cd backend && nodemon run serve\" "
     },
     "dependencies": {
         "concurrently": "^6.3.0"

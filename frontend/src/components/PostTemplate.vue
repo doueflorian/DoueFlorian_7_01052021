@@ -18,25 +18,22 @@
 
         <!-- Conteneur modération du post, afficher si utilisateur est à l'origine du post, ou s'il a un user_level de 1 -->        
         <span v-if="tokenid === userid || tokenlevel === 1" class="user_control">
-          <button @click="showControls  = !showControls">...</button>
-          <span v-show="showControls" class="user_control_buttons">
-            <!-- Afficher formulaire modification -->
-            <button
-                @click="showModify  = !showModify" v-show="!showModify">
-                <i class="fas fa-pen"></i> Modifier
-            </button>
-            <!-- Cacher formulaire modification -->
-            <button
-                @click="showModify  = !showModify" v-show="showModify">
-                <i class="fas fa-pen"></i> Annuler
-            </button>
-            <!-- Supprimer le post -->
-            <button
-                @click="deletePost"
-                v-if="tokenid === userid || tokenlevel === 1 " 
-                :data-id="id"><i class="fas fa-trash"></i> Supprimer
-            </button>
-          </span>
+          <!-- Afficher formulaire modification -->
+          <button
+            @click="showModify  = !showModify" v-show="!showModify">
+            <i class="fas fa-pen"></i> Modifier
+          </button>
+          <!-- Cacher formulaire modification -->
+          <button
+            @click="showModify  = !showModify" v-show="showModify">
+            <i class="fas fa-pen"></i> Annuler
+          </button>
+          <!-- Supprimer le post -->
+          <button
+            @click="deletePost"
+            v-if="tokenid === userid || tokenlevel === 1 " 
+            :data-id="id"><i class="fas fa-trash"></i> Supprimer
+          </button>
         </span>
       </div>
       <!-- Conteneur du message -->
@@ -116,7 +113,6 @@ export default {
       token: store.state.token,
       comments: [],
       reactions: [],
-      showControls: false,
       showModify: false,
       showComments: false,
       previewUrl: null,
@@ -203,7 +199,6 @@ export default {
               return response.json() })
           .then(() => this.showModify = false)
           .then(() => this.$parent.getPosts())
-          .then(() => this.showControls = false)
           .catch((error) => { error})  
       }
     },
@@ -221,7 +216,6 @@ export default {
         .then( function(response) {
                 return response.json() })
         .then(() => this.$parent.getPosts())
-        .then(() => this.showControls = false)
         .catch((error) => { error})  
       }
     },

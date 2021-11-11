@@ -233,6 +233,7 @@ export default {
     border-radius: 1em;
     padding: 1em;
     line-height: 1.5em;
+    text-align: center;
 
     .file_upload{
       cursor: pointer;
@@ -251,7 +252,8 @@ export default {
     }
 
     .submit{
-        width: 20%;
+        width: 8em;
+        margin-top: 0.2em;
     }
   }
 
@@ -317,7 +319,7 @@ export default {
       }
     }
     &_buttons{
-      border: 1px solid black;
+      background-color: lightgrey;
       border-radius: 1em;
       position: absolute;
       right: 0;
