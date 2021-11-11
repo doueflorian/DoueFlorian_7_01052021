@@ -49,15 +49,8 @@ Utilisez `Ctrl+C` dans le terminal pour stopper les serveurs.
 
 ## Informations supplémentaires ##
 
-Un compte administrateur est déjà stocké dans la base de données avec les identifiants de connexion suivants : 
-
-email
-
-	admin@groupomania.com
-
-mot de passe 
-
-	123456
+Un compte administrateur est déjà stocké dans la base de données, vous trouverez ces identifiants dans le fichier admin.txt.
+Ce fichier se situe dans le dossier "database"
 
 Ce compte permettra la modification / suppression de n'importe quelle publication.
 Afin de créer un nouvel administrateur, créez un utilisateur sur le site, et changez son "user_level" à 1 depuis MYSQL.

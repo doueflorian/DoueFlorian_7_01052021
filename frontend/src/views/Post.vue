@@ -316,8 +316,7 @@ export default {
     padding: 1em;
     border-bottom: 1px solid black;
     width: 90%;
-    
-
+    position: relative;
     
     &__infos {
     display: flex;

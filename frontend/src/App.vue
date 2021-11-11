@@ -316,6 +316,15 @@ export default {
       border-radius: 1em;
       }
     }
+    &_buttons{
+      border: 1px solid black;
+      border-radius: 1em;
+      position: absolute;
+      right: 0;
+      top: 4em;
+      display: flex;
+      flex-direction: column;
+    }
   }
    
   .hide {

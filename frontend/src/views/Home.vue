@@ -216,6 +216,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 
     &__infos {
     display: flex;
