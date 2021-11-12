@@ -11,7 +11,7 @@ exports.createComment = (req, res, next) => {
         Comment.create({
             // Récupérer les informations de la requête,
             ...commentObject,
-            image_url: `${req.protocol}://${req.get('host')}/images/users/${req.file.filename}`
+            image_url: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
         })
         .then(() => res.status(201).json({ message: 'Commentaire enregistré !'}))
         .catch(error => res.status(400).json({ error }));
@@ -83,7 +83,7 @@ exports.deleteComment = (req, res, next) => {
             .catch(error => res.status(400).json({ error }));
         }else {
             // Récupérer le nom de l'image et la supprimer
-            const filename = comment.image_url.split('/images/users/')[1];
+            const filename = comment.image_url.split('/images/')[1];
             fs.unlink(`images/${filename}`, () => {
                 // Supprimer le commentaire
                 Comment.destroy({where: { id: req.params.id} })

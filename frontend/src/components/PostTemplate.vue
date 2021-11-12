@@ -4,11 +4,9 @@
     <div class="post-card">
       <!-- Informations de l'utilisateur à l'origine du post -->
       <div class="post-card__infos">
-        <span> 
+        <span class="post-card__infos-user"> 
           <img v-if="profilepic" class="profile_pic-post" :src="profilepic"  :alt="'Photo de profil de l\'utilisateur' + userid">
           <i v-else class="fas fa-user-circle profile_nopic-post"></i>
-        </span>
-        <span>
           <a class="post-card_links" :href="'/user?id=' + userid">{{ lastname }} {{ firstname}}</a>
         </span>
         <span>
@@ -63,12 +61,11 @@
 
       </div>
       <!-- Conteneur des réactions au post -->
-      <div> 
-        <i :data-id="id" @click="send_like" class="fas fa-thumbs-up"></i> {{likes}} 
-        <i :data-id="id" @click="send_dislike" class="fas fa-thumbs-down"></i> {{ dislikes}} 
-      </div>
-      <div class="post-card_end">
-
+      <div class="post-card_end"> 
+        <span>
+          <i :data-id="id" @click="send_like" class="fas fa-thumbs-up"></i> {{likes}} 
+          <i :data-id="id" @click="send_dislike" class="fas fa-thumbs-down"></i> {{ dislikes}} 
+        </span>
         <!-- Réaction du post, montrer différents conteneurs selon leur nombre -->
         <!-- si 0 réaction -->
         <div v-if="reactions.length == 0">

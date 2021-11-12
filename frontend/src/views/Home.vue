@@ -143,6 +143,7 @@ export default {
               return response.json();
             })
             .then(() => this.getPosts() )
+            .then(() => this.previewUrl = null)
             .catch((error) => {error})
           e.target.reset();
       }
@@ -220,20 +221,28 @@ export default {
 
     &__infos {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0em 0.5em;
     margin-bottom: 1em;
     flex-wrap: wrap;
-      @media (max-width: 810px) {
-        justify-content: center;
+      @media (max-width: 1024px) {
+        flex-direction: column;
+      }
+
+      span:nth-child(1){
+        flex: 1;
       }
 
       span:nth-child(2){
-        flex: 1;
+        @media (min-width: 1024px) {
+          margin-right: 1em;
+        }
       }
-      span:nth-child(3){
-        margin-right: 1em;
+
+      &-user {
+        display: flex;
+        align-items: center;
       }
     }
 
@@ -268,6 +277,11 @@ export default {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      
+      @media (max-width: 810px) {
+        text-align: center;
+        flex-direction: column;
+      }
     }
 
     &_links{

@@ -291,6 +291,7 @@ export default {
 </script>
 
 <style lang="scss">
+// Style Pour la page Acount & User
 
   .user-card {
     margin: 1em auto;
@@ -321,7 +322,7 @@ export default {
       margin-bottom: 1em;
       align-items: baseline;
       
-      @media (max-width: 810px) {
+      @media (max-width: 1366px) {
         flex-direction: column;
         align-items: center;
       }
@@ -338,7 +339,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-          @media (max-width: 810px) {
+          @media (max-width: 1366px) {
         flex-direction: column;
         align-items: center;
       }

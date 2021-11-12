@@ -194,9 +194,11 @@ export default {
     align-items: center;
     width: 100%;
     line-height: 2em;
-
+    flex-wrap: wrap;
+    justify-content: center;
+      
     .file {
-        display:none;
+      display:none;
     }
 
     .message {

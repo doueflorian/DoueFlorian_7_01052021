@@ -4,11 +4,9 @@
     <div  class="comment-card" >
       <!-- Informations de l'utilisateur à l'origine du commentaire -->
       <div class="comment-card__infos">
-        <span > 
+        <span class="comment-card__infos-user"> 
           <img v-if="profilepic" class="profile_pic-post" :src="profilepic"  :alt="'Photo de profil de l\'utilisateur' + userid">
           <i v-else class="fas fa-user-circle profile_nopic-post"></i>
-        </span>
-        <span>
           <a class="post-card_links" :href="'/user?id=' + userid">{{ lastname }} {{ firstname}}</a>
         </span>
         <span>

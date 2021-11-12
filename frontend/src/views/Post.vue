@@ -237,7 +237,9 @@ export default {
           return response.json();
         })
         .then(() => this.getComments() )
+        .then(() => this.previewUrl = null)
         .catch((error) => { console.log(error, "Couldn't post comment") } );
+        
       e.target.reset();
       }
     } 
@@ -272,15 +274,8 @@ export default {
 // Style du formulaire d'envoi de commentaire
   .send_comment {
     margin: auto;
-    display: flex;
     width: 95%;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 0.2em;
-    padding: 0.2em 0.5em 0.5em 0em;
-    align-items: center;
-    background-color: #fff;
-    
+    padding: 0.2em 0.5em 0.5em 0em;   
       @media (min-width: 1136px) {
         width: 60%;
       }
@@ -325,14 +320,23 @@ export default {
     padding: 0em 0.5em;
     margin-bottom: 1em;
     flex-wrap: wrap;
-      @media (max-width: 810px) {
-        justify-content: center;
+      @media (max-width: 1024px) {
+        flex-direction: column;
       }
-      span:nth-child(2){
+
+      span:nth-child(1){
         flex: 1;
       }
-      span:nth-child(3){
-        margin-right: 1em;
+
+      span:nth-child(2){
+        @media (min-width: 1024px) {
+          margin-right: 1em;
+        }
+      }
+
+      &-user {
+        display: flex;
+        align-items: center;
       }
     }
 
